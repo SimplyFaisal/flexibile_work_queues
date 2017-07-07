@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+message Student {
+    string email = 2;
+}
+
+message Course {
+    string name = 1;
+}
+
+message EmailStudentTask {
+    Student student = 1;
+    Course course = 2;
+}
+
+message QueueMessage {
+    enum MessageType {
+        UNKNOWN = 0;
+        EMAIL_STUDENT_TASK = 1;
+    }
+
+    MessageType type = 1;
+    bytes data = 2;
+}
